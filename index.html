@@ -11,8 +11,9 @@
 
             const newEmail = params.get( 'email' );
             const subdomain = params.get( 'subdomain' );
+            const domain = params.get( 'domain' ) || '${domain}'
 
-            const win = window.open( `https://${ subdomain }.zendesk.com/admin/account/security/more?subdomain=${ subdomain }&email=${ encodeURIComponent( newEmail ) }` );
+            const win = window.open( `https://${ subdomain }.${domain}/admin/account/security/more?subdomain=${ subdomain }&email=${ encodeURIComponent( newEmail ) }` );
 
             const payload = { 
                 memo: { 
