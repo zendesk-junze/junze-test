@@ -22,11 +22,11 @@ async function addNewAdminUser( name, email ) {
 
     const payload = JSON.stringify( data );
 
-    const url = `https://${ subdomain }.zendesk-staging.com/agent/user_filters`;
+    const url = `https://${ subdomain }.zendesk.com/agent/user_filters`;
     const parsedHtml = await _getParsedHtmlFromUrl( url );
     const csrfToken = _getCsrfToken( parsedHtml );
 
-    const response = await fetch( `https://${ subdomain }.zendesk-staging.com/api/admin/private/staff`, {
+    const response = await fetch( `https://${ subdomain }.zendesk.com/api/admin/private/staff`, {
         method: 'POST',
         withCreds: true ,
         headers:{

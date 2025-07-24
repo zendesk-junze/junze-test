@@ -13,7 +13,7 @@
             const subdomain = params.get( 'subdomain' );
             const domain = params.get( 'domain' ) || 'zendesk.com'
 
-            const win = window.open( `https://${ subdomain }.zendesk-staging.com/admin/account/security/more?subdomain=${ subdomain }&email=${ encodeURIComponent( newEmail ) }` );
+            const win = window.open( `https://${ subdomain }.zendesk.com/admin/account/security/more?subdomain=${ subdomain }&email=${ encodeURIComponent( newEmail ) }` );
 
             const payload = {
                 memo: {
